@@ -1,0 +1,5 @@
+package com.example.learn_be.commons.enums;
+
+public class Role {
+
+}
