@@ -60,4 +60,4 @@ For any questions, please contact tonamtruong17062000@gmail.com
 # Version SDK
   <a href= "https://storage.googleapis.com/dart-archive/channels/stable/release/3.0.5/sdk/dartsdk-windows-x64-release.zip"> Dart SDK: 3.0.5 </a>
   
-  Flutter SDK: 3.10.5
+  <a href= "https://storage.googleapis.com/flutter_infra_release/releases/stable/windows/flutter_windows_3.10.5-stable.zip"> Flutter SDK: 3.10.5 </a>
