@@ -52,10 +52,10 @@ Contact 📧
 For any questions, please contact tonamtruong17062000@gmail.com
 
 # Flutter
-Dart OOP
-Futures
-Streams
-Bloc pattern (cubit/bloc)
-
-# Version
-## Dart SDK: 
+## Dart OOP
+## Futures
+## Streams
+## Bloc pattern (cubit/bloc)
+# Version SDK
+  Dart SDK: 3.0.5
+  Flutter SDK: 3.10.5
