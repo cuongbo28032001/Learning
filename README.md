@@ -51,7 +51,7 @@ Contact 📧
 
 For any questions, please contact tonamtruong17062000@gmail.com
 
-# Flutter ![image](https://github.com/cuongbo28032001/Learning/assets/71719025/cfd35b55-0ecd-4dcc-983e-fc67e13aff64)
+# Flutter <img src="https://github.com/cuongbo28032001/Learning/assets/71719025/cfd35b55-0ecd-4dcc-983e-fc67e13aff64" width="30" alt="Flutter icon"/>
 
 ## Dart OOP
 ## Futures
