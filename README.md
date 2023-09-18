@@ -50,3 +50,12 @@ Copy application.properties
 Contact 📧
 
 For any questions, please contact tonamtruong17062000@gmail.com
+
+# Flutter
+Dart OOP
+Futures
+Streams
+Bloc pattern (cubit/bloc)
+
+# Version
+## Dart SDK: 
