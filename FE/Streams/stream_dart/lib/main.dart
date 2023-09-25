@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stream_dart/count_stream_controller.dart';
+import 'package:stream_dart/validate_value_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -40,11 +41,13 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   CountController countController = CountController();
+  ValidateController validateController = ValidateController();
 
   @override
   void dispose() {
     super.dispose();
     countController.controller.close();
+    validateController.validateConteroller.close();
   }
 
   @override
@@ -70,6 +73,24 @@ class _MyHomePageState extends State<MyHomePage> {
                 onPressed: _incrementCounter, child: const Text('UP')),
             ElevatedButton(
                 onPressed: _decrementCounter, child: const Text('DOWN')),
+            const Padding(
+              padding: EdgeInsets.symmetric(vertical: 15),
+              child: Divider(
+                thickness: 2.0,
+              ),
+            ),
+            TextFormField(
+              onChanged: (value) => validateController
+                  .addValidate(validateController.validateValue(value)),
+            ),
+            StreamBuilder(
+              stream: validateController.stream,
+              builder: (context, snapshot) {
+                return snapshot.hasData
+                    ? Text(snapshot.data.toString())
+                    : const CircularProgressIndicator();
+              },
+            ),
           ],
         ),
       ),
