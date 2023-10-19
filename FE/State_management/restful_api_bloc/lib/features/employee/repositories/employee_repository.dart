@@ -5,7 +5,7 @@ import 'package:restful_api_bloc/networks/network_service.dart';
 class EmployeeRepository {
   final String _baseUrl = "http://10.1.0.187:8081/flutter/employee";
 
-  Future<List<EmployeeModel>> getListEmployee() async {
+  Future getListEmployee() async {
     final response = await NetworkService.sendRequest(
         requestType: RequestType.get, url: '$_baseUrl/list');
 
@@ -20,7 +20,7 @@ class EmployeeRepository {
             throw Exception('An Error has happened. $errorType - $msg'));
   }
 
-  Future<EmployeeModel> getEmployeeDetail(int id) async {
+  Future getEmployeeDetail(int id) async {
     final response = await NetworkService.sendRequest(
         requestType: RequestType.get, url: '$_baseUrl/detail?id=$id');
 
@@ -32,8 +32,7 @@ class EmployeeRepository {
             throw Exception('An Error has happened. $errorType - $msg'));
   }
 
-  Future<EmployeeModel> updateEmployeeDetail(
-      EmployeeModel employeeModel) async {
+  Future updateEmployeeDetail(EmployeeModel employeeModel) async {
     final response = await NetworkService.sendRequest(
         requestType: RequestType.put,
         url: '$_baseUrl/updated',
@@ -47,7 +46,7 @@ class EmployeeRepository {
             throw Exception('An Error has happened. $errorType - $msg'));
   }
 
-  Future<EmployeeModel> deleteEmployeeDetail(int id) async {
+  Future deleteEmployeeDetail(int id) async {
     final response = await NetworkService.sendRequest(
         requestType: RequestType.get, url: '$_baseUrl/delete?id=$id');
 
@@ -59,8 +58,7 @@ class EmployeeRepository {
             throw Exception('An Error has happened. $errorType - $msg'));
   }
 
-  Future<EmployeeModel> createEmployeeDetail(
-      EmployeeModel employeeModel) async {
+  Future createEmployeeDetail(EmployeeModel employeeModel) async {
     final response = await NetworkService.sendRequest(
         requestType: RequestType.get,
         url: '$_baseUrl/created',

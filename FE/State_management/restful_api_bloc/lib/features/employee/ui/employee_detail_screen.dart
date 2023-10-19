@@ -32,23 +32,32 @@ class EmployeeDetailScreen extends StatelessWidget {
             child: Center(
               child: Padding(
                 padding: const EdgeInsets.all(20),
-                child: BlocBuilder<EmployeeBloc, EmployeeState>(
+                child: BlocConsumer<EmployeeBloc, EmployeeState>(
+                    listener: (context, state) {
+                      if (state is EmployeeUpdatedState) {
+                        // Navigator.pop(context);
+                        // context.read<EmployeeBloc>().add(LoadListEmployeeEvent());
+                        print('vào tới đây');
+                      }
+                    },
+                    listenWhen: (previous, current) => (previous != current),
                     builder: (context, state) {
-                  if (state is EmployeeErrorState) {
-                    return Text(
-                      state.message,
-                      style: const TextStyle(fontSize: 16, color: Colors.red),
-                    );
-                  } else if (state is EmployeeLoadedState) {
-                    return EmployeeDetailWidget(
-                      employeeModel: state.employeeModel,
-                      onEmployeeModelChanged: (updateEmployeeModel) {
-                        editemployeeModel = updateEmployeeModel;
-                      },
-                    );
-                  }
-                  return const CircularProgressIndicator();
-                }),
+                      if (state is EmployeeErrorState) {
+                        return Text(
+                          state.message,
+                          style:
+                              const TextStyle(fontSize: 16, color: Colors.red),
+                        );
+                      } else if (state is EmployeeLoadedState) {
+                        return EmployeeDetailWidget(
+                          employeeModel: state.employeeModel,
+                          onEmployeeModelChanged: (updateEmployeeModel) {
+                            editemployeeModel = updateEmployeeModel;
+                          },
+                        );
+                      }
+                      return const CircularProgressIndicator();
+                    }),
               ),
             ),
           ),
@@ -61,11 +70,6 @@ class EmployeeDetailScreen extends StatelessWidget {
                 context
                     .read<EmployeeBloc>()
                     .add(UpdateEmployeeEvent(editemployeeModel!));
-                // final state = context.read<EmployeeBloc>().state;
-                // if (state is EmployeeLoadedState) {
-                //   Navigator.pop(context);
-                //   context.read<EmployeeBloc>().add(LoadListEmployeeEvent());
-                // }
               }
             },
             child: SizedBox(

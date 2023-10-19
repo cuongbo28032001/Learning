@@ -17,6 +17,11 @@ class EmployeeLoadedState extends EmployeeState {
   EmployeeLoadedState(this.employeeModel);
 }
 
+class EmployeeUpdatedState extends EmployeeState {
+  final EmployeeModel employeeModel;
+  EmployeeUpdatedState(this.employeeModel);
+}
+
 class ListEmployeeLoadedState extends EmployeeState {
   final List<EmployeeModel> listEmployeeModel;
   ListEmployeeLoadedState(this.listEmployeeModel);

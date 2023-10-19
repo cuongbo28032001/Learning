@@ -57,11 +57,11 @@ class EmployeeBloc extends Bloc<EmployeeEvent, EmployeeState> {
   // logic update employee
   Future _updateEmployeeEvent(
       Emitter emitter, EmployeeModel employeeModel) async {
-    emitter(EmployeeLoadingState());
+    // emitter(EmployeeLoadingState());
     try {
       EmployeeModel model =
           await _repository.updateEmployeeDetail(employeeModel);
-      emitter(EmployeeLoadedState(model));
+      emitter(EmployeeUpdatedState(model));
     } catch (e) {
       emitter(EmployeeErrorState(e.toString()));
     }
