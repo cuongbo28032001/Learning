@@ -1,0 +1,39 @@
+.div-layout{
+    display: grid;
+    grid-template-rows: max-content 1fr min-content; 
+    min-height: 100vh;
+}
+
+.div-contet-center{
+    display: flex;
+}
+
+.div-contet-center .div-outlet{
+    margin-top: 10vh;
+    margin-left: 100px;
+    flex:1;
+    text-align: center;
+    min-height: 80vh;
+}
+
+.page-side-bar{
+  position: fixed;
+  width: 100px;
+  left: 0;
+  top: 10vh;
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #fff;
+  border-right: 1px solid #EFF2F5;
+}
+
+.div-pagesidebar{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 19px 0;
+}
+

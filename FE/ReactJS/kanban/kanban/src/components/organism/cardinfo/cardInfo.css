@@ -1,0 +1,183 @@
+.Ibox_mainBackground{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightgray;
+}
+
+.Ibox_container{
+    padding: 20px;
+    background-color: white;
+    border-radius: 13px;
+
+    width: 30%;
+
+}
+
+.Ibox_titleSection{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.Ibox_titleSection > div{
+    display: flex;
+    width: 95%;
+}
+
+.Ibox_iconPart{
+    width: 10%;
+}
+
+.Ibox_contentPart{
+    width: 90%;
+}
+
+.Ibox_contentPart > h4{
+    margin-bottom: 10px;
+}
+.Ibox_contentPart > p{
+    color: gray;
+    margin-top: 6px;
+    font-size: 15px;
+}
+.Ibox_contentPart > p > span{
+    text-decoration: underline;
+}
+
+.Ibox_contentPart > button{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* width: 30%; */
+    padding: 5px 10px;
+
+    outline: none;
+    border: none;
+    margin-top: 5px;
+}
+.Ibox_contentPart > button:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.Ibox_descriptionSection{
+    margin-top: 30px;
+    width: 100%;
+
+    display: flex;
+}
+
+.description_box{
+    width: 100%;
+    min-height: 50px;
+    /* border: 1px solid blue; */
+    /* background-color: rgb(236, 236, 236); */
+}
+
+.Desc_Start{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.description_box>div>p{
+    width: 80%;
+    min-height: 80%;
+    background-color: rgb(236, 236, 236);
+    cursor: pointer;
+    padding: 5px 10px;
+}
+
+.description_box>div>button{
+    border: none;
+    background: none;
+    
+    display: inline-block;
+    outline: 0;
+    cursor: pointer;
+    padding: 5px 16px;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 20px;
+    vertical-align: middle;
+    border: 1px solid;
+    border-radius: 6px;
+    color: #0366d6;
+    background-color: #fafbfc;
+    border-color: #1b1f2326;
+    box-shadow: rgba(27, 31, 35, 0.04) 0px 1px 0px 0px, rgba(255, 255, 255, 0.25) 0px 1px 0px 0px inset;
+    transition: 0.2s cubic-bezier(0.3, 0, 0.5, 1);
+    transition-property: color, background-color, border-color;
+    
+
+}
+
+.description_box>div>button:hover {
+        color: #ffffff;
+        background-color: #0366d6;
+        border-color: #1b1f2326;
+        box-shadow: rgba(27, 31, 35, 0.1) 0px 1px 0px 0px, rgba(255, 255, 255, 0.03) 0px 1px 0px 0px inset;
+        transition-duration: 0.1s;
+    }
+
+.btn{
+    border-radius: 4px;
+    padding: 7px 12px;
+    margin: 10px;
+    margin-left: 0;
+    margin-bottom: 0;
+    outline: none;
+    border: none;
+}
+.btn:hover{
+    background-color: lightgray;
+}
+
+
+.Ibox_activitySection{
+    margin-top: 30px;
+    width: 100%;
+
+    display: flex;
+}
+
+.Ibox_activityHeaderDiv{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Ibox_activityHeaderDiv>div>button{
+    outline: none;
+    border: none;
+
+    padding: 5px 10px;
+}
+.Ibox_activityHeaderDiv > button:hover{
+    background-color: lightgray;
+    cursor: pointer;
+}
+
+.TimeDetail{
+    margin: 0.4rem ;
+}
+
+.comment_div > div{
+    background-color: whitesmoke;
+    border: 1px solid lightgray;
+    border-radius: 8px;
+
+    padding: 8px 14px;
+    margin-top: 10px;
+}
+.comment_div span{
+    color: gray;
+    text-decoration: underline;
+    cursor: pointer;
+    padding: 8px 12px;
+    font-size: 13px;
+}

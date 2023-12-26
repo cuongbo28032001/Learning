@@ -1,0 +1,11 @@
+import React from 'react'
+import './footer.css'
+
+export function Footer() {
+  return (
+    <footer className='footer'>
+        Bản quyền thuộc về Cường Đoàn
+    </footer>
+  )
+}
+

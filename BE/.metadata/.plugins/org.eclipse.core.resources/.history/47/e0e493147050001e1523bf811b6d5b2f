@@ -1,5 +1,0 @@
-package com.example.learn_be.commons.enums;
-
-public class EnumGender {
-	public enum Sta
-}

@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">demo_java_android</string>
+    <string name="button_continue">continue</string>
+    <string name="button_back">back</string>
+    <string name="name_app">TECH STOCK</string>
+    <string name="welcome">Welcome</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="remember_me">Remember me</string>
+    <string name="login_button">Login</string>
+    <string name="open_nav_menu">Open nav menu</string>
+    <string name="close_nav_menu">Close nav menu</string>
+</resources>

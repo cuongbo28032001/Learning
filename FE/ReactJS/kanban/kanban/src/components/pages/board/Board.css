@@ -1,0 +1,8 @@
+.Board{
+    background-image: url(https://img.freepik.com/premium-photo/toned-pink-purple-blue-teal-shiny-surface-background-illustration_739548-3018.jpg?w=740);
+    height: 100vh;
+    background-size: cover;
+}
+.board-wrapper{
+    display: flex;
+}

@@ -28,7 +28,7 @@ public class EmployeeImpl implements EmployeeService {
     private EmployeeRepository employeeRepository;
 
     @Override
-    public ResponseConfig getAll(Pageable page) {
+    public ResponseConfig search(Employee employee, Pageable page) {
         ResponseConfig<Page<Employee>> responseConfig = new ResponseConfig<Page<Employee>>();
         try {
             Specification<Employee> specification = new Specification<Employee>() {
@@ -39,14 +39,20 @@ public class EmployeeImpl implements EmployeeService {
                                              CriteriaBuilder criteriaBuilder) {
                     List<Predicate> predicates = new ArrayList<>();
                     //add điều kiện tìm kiếm ở đây
+                    if(employee.getName() != null){
+                        predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("name"), "%"+employee.getName()+"%")));
+                    }
+                    if(employee.getEmail() != null){
+                        predicates.add(criteriaBuilder.and(criteriaBuilder.like(root.get("email"), "%"+employee.getEmail()+"%")));
+                    }
                     return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
                 }
             };
-            Page<Employee> page1 = employeeRepository.findAll(specification, page);
             responseConfig.setErrorCode(THANHCONG);
             responseConfig.setErrorMessage("Thành công");
+            Page<Employee> page1 = employeeRepository.findAll(specification, page);
             responseConfig.setData(page1);
-
+            return responseConfig;
         } catch (Exception e) {
             e.printStackTrace();
             responseConfig.setErrorCode(LOI);
@@ -54,6 +60,36 @@ public class EmployeeImpl implements EmployeeService {
         return responseConfig;
     }
 
+    @Override
+    public ResponseConfig searchOnlyOneTextBox(String value, Pageable page) {
+        ResponseConfig<Page<Employee>> responseConfig = new ResponseConfig<Page<Employee>>();
+        try {
+            Specification<Employee> specification = new Specification<Employee>() {
+                @Serial
+                private static final long serialVersionUID = 1L;
+                @Override
+                public Predicate toPredicate(@NotNull Root<Employee> root, @NotNull CriteriaQuery<?> query,
+                                             CriteriaBuilder criteriaBuilder) {
+                    List<Predicate> predicates = new ArrayList<>();
+                    //add điều kiện tìm kiếm ở đây
+
+                    if(value != null){
+                        predicates.add(criteriaBuilder.or(criteriaBuilder.like(root.get("name"), "%"+value+"%"), criteriaBuilder.like(root.get("email"), "%"+value+"%")));
+                    }
+                    return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+                }
+            };
+            responseConfig.setErrorCode(THANHCONG);
+            responseConfig.setErrorMessage("Thành công");
+            Page<Employee> page1 = employeeRepository.findAll(specification, page);
+            responseConfig.setData(page1);
+            return responseConfig;
+        } catch (Exception e) {
+            e.printStackTrace();
+            responseConfig.setErrorCode(LOI);
+        }
+        return responseConfig;
+    }
 
 
     @Override
@@ -69,6 +105,7 @@ public class EmployeeImpl implements EmployeeService {
             }
             responseConfig.setErrorCode(THANHCONG);
             responseConfig.setData(this.employeeRepository.save(employee));
+            return responseConfig;
         }catch (Exception e)
         {
             e.printStackTrace();
@@ -101,6 +138,7 @@ public class EmployeeImpl implements EmployeeService {
             responseConfig.setErrorCode(THANHCONG);
             responseConfig.setErrorMessage("Thành công");
             responseConfig.setData(employeeOld);
+            return responseConfig;
 
         }catch (Exception e)
         {
@@ -122,10 +160,35 @@ public class EmployeeImpl implements EmployeeService {
             employeeRepository.deleteById(id);
             responseConfig.setErrorCode(THANHCONG);
             responseConfig.setErrorMessage("Thành công");
+            return responseConfig;
         }catch (Exception e){
             e.printStackTrace();
             responseConfig.setErrorCode(LOI);
         }
         return  responseConfig;
+    }
+
+    @Override
+    public ResponseConfig getDetail(long id) {
+        ResponseConfig responseConfig = new ResponseConfig();
+        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        try {
+            if(!employeeOptional.isPresent())
+            {
+                responseConfig.setErrorCode(KHONGTHANHCONG);
+                responseConfig.setErrorMessage("Không tìm thấy bản ghi!");
+                return responseConfig;
+            }
+            responseConfig.setErrorCode(THANHCONG);
+            responseConfig.setErrorMessage("Thành công");
+            responseConfig.setData(employeeOptional.get());
+            return responseConfig;
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            responseConfig.setErrorCode(LOI);
+        }
+        return responseConfig;
     }
 }
